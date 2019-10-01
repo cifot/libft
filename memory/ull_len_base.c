@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlist_push_link.c                               :+:      :+:    :+:   */
+/*   ull_len_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 00:02:32 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/01 10:53:58 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/01 10:45:28 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/01 10:52:11 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_dlist		*ft_dlist_push_link(t_dlist **lst, void *data, int tag)
+int		ull_len_base(unsigned long long num, unsigned base)
 {
-	t_dlist		*ptr;
-	t_dlist		*end;
+	int count;
 
-	if (!data || !lst || !(ptr = (t_dlist *)malloc(sizeof(*ptr))))
-		return (NULL);
-	ptr->content = data;
-	ptr->tag = tag;
-	ptr->next = NULL;
-	if (*lst == NULL)
+	count = 0;
+	if (base < 2 || base > 16)
+		return (0);
+	if (num == 0)
+		return (1);
+	while (num)
 	{
-		ptr->prev = NULL;
-		*lst = ptr;
-		return (*lst);
+		num /= base;
+		++count;
 	}
-	end = *lst;
-	while (end->next)
-		end = end->next;
-	end->next = ptr;
-	ptr->prev = end;
-	return (*lst);
+	return (count);
 }

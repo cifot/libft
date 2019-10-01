@@ -6,12 +6,11 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 00:11:08 by nharra            #+#    #+#             */
-/*   Updated: 2019/09/17 00:14:52 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/01 10:54:06 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dlist.h"
-#include <stdlib.h>
+#include "libft.h"
 
 void	ft_dlist_delone_link(t_dlist **lst, t_dlist *ptr)
 {

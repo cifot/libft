@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlist_push_link.c                               :+:      :+:    :+:   */
+/*   ll_len_base.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 00:02:32 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/01 10:53:58 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/01 10:44:04 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/01 10:51:40 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_dlist		*ft_dlist_push_link(t_dlist **lst, void *data, int tag)
+int		ll_len_base(long long num, unsigned base)
 {
-	t_dlist		*ptr;
-	t_dlist		*end;
+	unsigned long long	u_num;
 
-	if (!data || !lst || !(ptr = (t_dlist *)malloc(sizeof(*ptr))))
-		return (NULL);
-	ptr->content = data;
-	ptr->tag = tag;
-	ptr->next = NULL;
-	if (*lst == NULL)
+	u_num = num;
+	if (num >= 0)
 	{
-		ptr->prev = NULL;
-		*lst = ptr;
-		return (*lst);
+		return (ull_len_base(u_num, base));
 	}
-	end = *lst;
-	while (end->next)
-		end = end->next;
-	end->next = ptr;
-	ptr->prev = end;
-	return (*lst);
+	else
+	{
+		u_num = -u_num;
+		return (ull_len_base(u_num, base));
+	}
 }

@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dlist_push_link.c                               :+:      :+:    :+:   */
+/*   strtoll.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 00:02:32 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/01 10:53:58 by nharra           ###   ########.fr       */
+/*   Created: 2019/09/20 08:43:36 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/01 10:51:36 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_dlist		*ft_dlist_push_link(t_dlist **lst, void *data, int tag)
+char			*ft_strtoll(long long num, unsigned base)
 {
-	t_dlist		*ptr;
-	t_dlist		*end;
+	unsigned long long	u_num;
 
-	if (!data || !lst || !(ptr = (t_dlist *)malloc(sizeof(*ptr))))
-		return (NULL);
-	ptr->content = data;
-	ptr->tag = tag;
-	ptr->next = NULL;
-	if (*lst == NULL)
+	u_num = num;
+	if (num >= 0)
 	{
-		ptr->prev = NULL;
-		*lst = ptr;
-		return (*lst);
+		return (ft_strtoull(u_num, base));
 	}
-	end = *lst;
-	while (end->next)
-		end = end->next;
-	end->next = ptr;
-	ptr->prev = end;
-	return (*lst);
+	else
+	{
+		u_num = -u_num;
+		return (ft_strtoull(u_num, base));
+	}
 }

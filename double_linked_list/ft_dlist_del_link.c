@@ -6,14 +6,13 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 00:08:05 by nharra            #+#    #+#             */
-/*   Updated: 2019/09/17 00:10:31 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/01 10:53:30 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dlist.h"
+#include "libft.h"
 
-
-void ft_dlist_del_link(t_dlist **lst)
+void	ft_dlist_del_link(t_dlist **lst)
 {
 	if (lst == NULL)
 		return ;

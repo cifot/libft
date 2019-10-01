@@ -6,7 +6,7 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by nharra            #+#    #+#             */
-/*   Updated: 2019/09/13 19:59:58 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/01 10:51:30 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,9 @@
 # include <fcntl.h>
 # define BUFF_SIZE 1024
 
-typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
+/*
+**						MEMORY
+*/
 
 size_t				ft_strlen(const char *s);
 int					ft_atoi(const char *str);
@@ -79,6 +76,21 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 char				*ft_safe_strcat(char **dest, const char *src);
+char				*ft_strtoull(unsigned long long num, unsigned base);
+char				*ft_strtoll(long long num, unsigned base);
+int					ll_len_base(long long num, unsigned base);
+int					ull_len_base(unsigned long long num, unsigned base);
+
+/*
+**						SINGLE_LINKED_LIST
+*/
+
+typedef struct		s_list
+{
+	void			*content;
+	size_t			content_size;
+	struct s_list	*next;
+}					t_list;
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -87,7 +99,15 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
+/*
+**						FILE
+*/
+
 int					get_next_line(const int fd, char **line);
+
+/*
+**						DOUBLE_LINKED_LIST
+*/
 
 typedef struct		s_dlist
 {
