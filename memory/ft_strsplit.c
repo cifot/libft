@@ -6,7 +6,7 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/13 08:48:08 by nharra            #+#    #+#             */
-/*   Updated: 2019/09/10 15:12:38 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/04 15:40:05 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ char			**ft_strsplit(char const *s, char c)
 	if (!s)
 		return (NULL);
 	count = count_words(s, c);
-	if (!(answer = (char**)malloc(sizeof(*answer) * (count) + 1)))
+	if (!(answer = (char**)malloc(sizeof(*answer) * (count + 1))))
 		return (NULL);
 	i = 0;
 	while (i < count)

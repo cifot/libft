@@ -6,7 +6,7 @@
 #    By: nharra <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/17 12:21:44 by nharra            #+#    #+#              #
-#    Updated: 2019/10/01 10:46:48 by nharra           ###   ########.fr        #
+#    Updated: 2019/10/04 15:43:02 by nharra           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,8 +68,8 @@ SOURCES_MEMORY =\
 	ft_safe_strcat.c\
 	ull_len_base.c\
 	ll_len_base.c\
-	strtoull.c\
-	strtoll.c\
+	ft_ulltostr.c\
+	ft_lltostr.c\
 
 SOURCES_DOUBLE_LIST =\
 	ft_dlist_del.c\

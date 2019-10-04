@@ -6,7 +6,7 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/01 10:51:30 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/04 15:42:12 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 char				*ft_safe_strcat(char **dest, const char *src);
-char				*ft_strtoull(unsigned long long num, unsigned base);
-char				*ft_strtoll(long long num, unsigned base);
+char				*ft_ulltostr(unsigned long long num, unsigned base);
+char				*ft_lltostr(long long num, unsigned base);
 int					ll_len_base(long long num, unsigned base);
 int					ull_len_base(unsigned long long num, unsigned base);
 
