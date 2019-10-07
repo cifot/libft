@@ -6,7 +6,7 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/07 20:56:26 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/07 21:22:37 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,8 +150,23 @@ typedef struct		s_queue
 }					t_queue;
 
 int					ft_queue_push_link(t_queue *queue, void *el, int tag);
-void				ft_queque_del_link(t_queue *queue);
+void				ft_queque_del_link(t_queue **queue);
 void				*ft_queue_pop(t_queue *queue);
 t_queue				*ft_queue_new(void);
+
+/*
+**						QUEUE
+*/
+
+typedef struct		s_stack
+{
+	t_dlist 		*beg;
+	size_t			size;
+}					t_stack;
+
+int					ft_stack_push_link(t_stack *stack, void *el, int tag);
+void				ft_stack_del_link(t_stack **stack);
+void				*ft_stack_pop(t_stack *stack);
+t_stack				*ft_stack_new(void);
 
 #endif

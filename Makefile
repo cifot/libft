@@ -6,7 +6,7 @@
 #    By: nharra <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/17 12:21:44 by nharra            #+#    #+#              #
-#    Updated: 2019/10/07 20:54:53 by nharra           ###   ########.fr        #
+#    Updated: 2019/10/07 21:21:57 by nharra           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -100,6 +100,13 @@ SOURCES_QUEUE=\
 	ft_queue_push_link.c\
 	ft_queue_del_link.c\
 
+SOURCES_STACK=\
+	ft_stack_push_link.c\
+	ft_stack_del_link.c\
+	ft_stack_pop.c\
+	ft_stack_new.c\
+
+
 SOURCES_FILE=\
 	get_next_line.c\
 
@@ -108,6 +115,7 @@ SOURCES_SINGLE_LIST_DIR = singly_linked_list
 SOURCES_DOUBLE_LIST_DIR = double_linked_list
 SOURCES_FILE_DIR = file
 SOURCES_QUEUE_DIR = queue
+SOURCES_STACK_DIR = stack
 
 SOURCE = $(notdir $(SOURCES))
 
@@ -117,6 +125,7 @@ SOURCES = \
 	$(addprefix $(SOURCES_DOUBLE_LIST_DIR)/, $(SOURCES_DOUBLE_LIST))\
 	$(addprefix $(SOURCES_FILE_DIR)/, $(SOURCES_FILE))\
 	$(addprefix $(SOURCES_QUEUE_DIR)/, $(SOURCES_QUEUE))\
+	$(addprefix $(SOURCES_STACK_DIR)/, $(SOURCES_STACK))\
 
 OBJECTS_DIR = obj
 
@@ -131,7 +140,7 @@ INCLUDES = libft.h
 
 NAME = libft.a
 
-vpath %.c $(SOURCES_MEMORY_DIR) $(SOURCES_SINGLE_LIST_DIR) $(SOURCES_DOUBLE_LIST_DIR) $(SOURCES_FILE_DIR) $(SOURCES_QUEUE_DIR)
+vpath %.c $(SOURCES_MEMORY_DIR) $(SOURCES_SINGLE_LIST_DIR) $(SOURCES_DOUBLE_LIST_DIR) $(SOURCES_FILE_DIR) $(SOURCES_QUEUE_DIR) $(SOURCES_STACK_DIR)
 
 vpath %.h $(INCLUDE_DIR)
 
