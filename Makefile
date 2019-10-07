@@ -6,13 +6,14 @@
 #    By: nharra <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/17 12:21:44 by nharra            #+#    #+#              #
-#    Updated: 2019/10/04 15:43:02 by nharra           ###   ########.fr        #
+#    Updated: 2019/10/07 20:54:53 by nharra           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Werror -Wextra
 
 SOURCES_MEMORY =\
+	ft_atol.c \
 	ft_atoi.c\
 	ft_bzero.c\
 	ft_isalnum.c\
@@ -68,8 +69,8 @@ SOURCES_MEMORY =\
 	ft_safe_strcat.c\
 	ull_len_base.c\
 	ll_len_base.c\
-	ft_ulltostr.c\
 	ft_lltostr.c\
+	ft_ulltostr.c\
 
 SOURCES_DOUBLE_LIST =\
 	ft_dlist_del.c\
@@ -79,6 +80,11 @@ SOURCES_DOUBLE_LIST =\
 	ft_dlist_push.c\
 	ft_dlist_simple_del.c\
 	ft_dlist_simple_delone.c\
+	ft_dlist_push_link.c\
+	ft_dlist_del_link.c\
+	ft_dlist_delone_link.c\
+	ft_dlist_addfront_link.c\
+
 
 SOURCES_SINGLE_LIST =\
 	ft_lstnew.c\
@@ -88,6 +94,12 @@ SOURCES_SINGLE_LIST =\
 	ft_lstiter.c\
 	ft_lstmap.c\
 
+SOURCES_QUEUE=\
+	ft_queue_new.c\
+	ft_queue_pop.c\
+	ft_queue_push_link.c\
+	ft_queue_del_link.c\
+
 SOURCES_FILE=\
 	get_next_line.c\
 
@@ -95,6 +107,7 @@ SOURCES_MEMORY_DIR = memory
 SOURCES_SINGLE_LIST_DIR = singly_linked_list
 SOURCES_DOUBLE_LIST_DIR = double_linked_list
 SOURCES_FILE_DIR = file
+SOURCES_QUEUE_DIR = queue
 
 SOURCE = $(notdir $(SOURCES))
 
@@ -103,6 +116,7 @@ SOURCES = \
 	$(addprefix $(SOURCES_SINGLE_LIST_DIR)/, $(SOURCES_SINGLE_LIST))\
 	$(addprefix $(SOURCES_DOUBLE_LIST_DIR)/, $(SOURCES_DOUBLE_LIST))\
 	$(addprefix $(SOURCES_FILE_DIR)/, $(SOURCES_FILE))\
+	$(addprefix $(SOURCES_QUEUE_DIR)/, $(SOURCES_QUEUE))\
 
 OBJECTS_DIR = obj
 
@@ -117,7 +131,7 @@ INCLUDES = libft.h
 
 NAME = libft.a
 
-vpath %.c $(SOURCES_MEMORY_DIR) $(SOURCES_SINGLE_LIST_DIR) $(SOURCES_DOUBLE_LIST_DIR) $(SOURCES_FILE_DIR)
+vpath %.c $(SOURCES_MEMORY_DIR) $(SOURCES_SINGLE_LIST_DIR) $(SOURCES_DOUBLE_LIST_DIR) $(SOURCES_FILE_DIR) $(SOURCES_QUEUE_DIR)
 
 vpath %.h $(INCLUDE_DIR)
 

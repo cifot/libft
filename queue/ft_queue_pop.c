@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltostr.c                                       :+:      :+:    :+:   */
+/*   ft_queue_pop.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 08:43:36 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/07 20:54:18 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/07 13:45:24 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/07 16:05:45 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_lltostr(long long num, unsigned base)
+void		*ft_queue_pop(t_queue *queue)
 {
-	unsigned long long	u_num;
+	void	*ptr;
+	t_dlist	*del;
 
-	u_num = num;
-	if (num >= 0)
+	ptr = NULL;
+	if (queue->end)
 	{
-		return (ft_ulltostr(u_num, base));
+		ptr = queue->end->content;
+		del = queue->end;
+		queue->end = queue->end->prev;
+		ft_dlist_delone_link(&(queue->beg), del);
+		queue->size--;
 	}
-	else
-	{
-		u_num = -u_num;
-		return (ft_ulltostr(u_num, base));
-	}
+	return (ptr);
 }

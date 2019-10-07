@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltostr.c                                       :+:      :+:    :+:   */
+/*   ft_queue_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 08:43:36 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/07 20:54:18 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/07 13:53:08 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/07 14:46:08 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_lltostr(long long num, unsigned base)
+t_queue		*ft_queue_new(void)
 {
-	unsigned long long	u_num;
+	t_queue *ptr;
 
-	u_num = num;
-	if (num >= 0)
-	{
-		return (ft_ulltostr(u_num, base));
-	}
-	else
-	{
-		u_num = -u_num;
-		return (ft_ulltostr(u_num, base));
-	}
+	if (!(ptr = (t_queue *)malloc(sizeof(*ptr))))
+		return (NULL);
+	ptr->size = 0;
+	ptr->beg = NULL;
+	ptr->end = NULL;
+	return (ptr);
 }

@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltostr.c                                       :+:      :+:    :+:   */
+/*   ft_queue_push_link.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 08:43:36 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/07 20:54:18 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/07 13:21:37 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/07 15:52:42 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_lltostr(long long num, unsigned base)
+int		ft_queue_push_link(t_queue *queue, void *el, int tag)
 {
-	unsigned long long	u_num;
-
-	u_num = num;
-	if (num >= 0)
-	{
-		return (ft_ulltostr(u_num, base));
-	}
-	else
-	{
-		u_num = -u_num;
-		return (ft_ulltostr(u_num, base));
-	}
+	if (!ft_dlist_addfront_link(&(queue->beg), el, tag))
+		return (-1);
+	if (queue->size == 0)
+		queue->end = queue->beg;
+	queue->size += 1;
+	return (0);
 }

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltostr.c                                       :+:      :+:    :+:   */
+/*   ft_dlist_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 08:43:36 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/07 20:54:18 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/07 14:54:11 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/07 14:56:44 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_lltostr(long long num, unsigned base)
+size_t		ft_dlist_len(t_dlist *ptr)
 {
-	unsigned long long	u_num;
+	size_t	len;
 
-	u_num = num;
-	if (num >= 0)
+	len = 0;
+	while (ptr)
 	{
-		return (ft_ulltostr(u_num, base));
+		++len;
+		ptr = ptr->next;
 	}
-	else
-	{
-		u_num = -u_num;
-		return (ft_ulltostr(u_num, base));
-	}
+	return (len);
 }
