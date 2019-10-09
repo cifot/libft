@@ -6,7 +6,7 @@
 #    By: nharra <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/17 12:21:44 by nharra            #+#    #+#              #
-#    Updated: 2019/10/07 21:21:57 by nharra           ###   ########.fr        #
+#    Updated: 2019/10/09 16:35:10 by nharra           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,12 +110,30 @@ SOURCES_STACK=\
 SOURCES_FILE=\
 	get_next_line.c\
 
+SOURCES_PRINTF =\
+	ft_parse.c\
+	ft_printf_check.c\
+	ft_printf.c\
+	print_c.c\
+	print_d.c\
+	print_p.c\
+	print_u.c\
+	print_s.c\
+	print_f.c\
+	print_oxx.c\
+	print_oxx_zero_prec.c\
+	print_params.c\
+	num_to_str.c\
+	put_percent.c\
+	ft_join.c\
+
 SOURCES_MEMORY_DIR = memory
 SOURCES_SINGLE_LIST_DIR = singly_linked_list
 SOURCES_DOUBLE_LIST_DIR = double_linked_list
 SOURCES_FILE_DIR = file
 SOURCES_QUEUE_DIR = queue
 SOURCES_STACK_DIR = stack
+SOURCES_PRINTF_DIR = ft_printf
 
 SOURCE = $(notdir $(SOURCES))
 
@@ -126,6 +144,7 @@ SOURCES = \
 	$(addprefix $(SOURCES_FILE_DIR)/, $(SOURCES_FILE))\
 	$(addprefix $(SOURCES_QUEUE_DIR)/, $(SOURCES_QUEUE))\
 	$(addprefix $(SOURCES_STACK_DIR)/, $(SOURCES_STACK))\
+	$(addprefix $(SOURCES_PRINTF_DIR)/, $(SOURCES_PRINTF))\
 
 OBJECTS_DIR = obj
 
@@ -140,7 +159,7 @@ INCLUDES = libft.h
 
 NAME = libft.a
 
-vpath %.c $(SOURCES_MEMORY_DIR) $(SOURCES_SINGLE_LIST_DIR) $(SOURCES_DOUBLE_LIST_DIR) $(SOURCES_FILE_DIR) $(SOURCES_QUEUE_DIR) $(SOURCES_STACK_DIR)
+vpath %.c $(SOURCES_MEMORY_DIR) $(SOURCES_SINGLE_LIST_DIR) $(SOURCES_DOUBLE_LIST_DIR) $(SOURCES_FILE_DIR) $(SOURCES_QUEUE_DIR) $(SOURCES_STACK_DIR) $(SOURCES_PRINTF_DIR)
 
 vpath %.h $(INCLUDE_DIR)
 
