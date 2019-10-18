@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: czena <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/11 13:18:10 by nharra            #+#    #+#             */
-/*   Updated: 2019/09/16 14:46:45 by czena            ###   ########.fr       */
+/*   Updated: 2019/10/19 01:10:51 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int		ft_read_from_lst(t_dlist **lst, t_dlist *ptr, char **line)
 	if (find_chr == NULL || find_chr[1] == '\0')
 	{
 		ft_dlist_simple_delone(lst, ptr);
-		return (find_chr == NULL ? clean_line(line, 0) : 1);
+		return (find_chr == NULL ? 0 : 1);
 	}
 	else
 	{
