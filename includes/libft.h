@@ -6,7 +6,7 @@
 /*   By: nharra <nharra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/21 11:36:42 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/21 12:00:08 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,8 @@ void				ft_dlist_add_prev(t_dlist **lst, t_dlist *side,
 size_t				ft_dlist_len(t_dlist *ptr);
 void				ft_dlist_add_after(t_dlist *after, t_dlist *el);
 t_dlist				*ft_dlist_create_el(void *el, int tag);
-void				ft_dlist_sort(t_dlist *beg, int (*cmp)(const void *, const void *));
+void				ft_dlist_sort(t_dlist *beg,
+					int (*cmp)(const void *, const void *));
 int					ft_dlist_is_tagsort(t_dlist *lst, int is_ascending);
 
 /*
@@ -226,8 +227,8 @@ int					ft_dlist_is_tagsort(t_dlist *lst, int is_ascending);
 
 typedef struct		s_queue
 {
-	t_dlist 		*beg;
-	t_dlist 		*end;
+	t_dlist			*beg;
+	t_dlist			*end;
 	size_t			size;
 }					t_queue;
 
@@ -246,7 +247,7 @@ t_queue				*ft_queue_new(void);
 
 typedef struct		s_stack
 {
-	t_dlist 		*beg;
+	t_dlist			*beg;
 	size_t			size;
 }					t_stack;
 
