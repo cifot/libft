@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: nharra <nharra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/19 00:16:15 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/21 11:36:42 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <fcntl.h>
 # include <stdarg.h>
 # define BUFF_SIZE 1024
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
 
 /*
 **						MEMORY
@@ -216,6 +218,7 @@ size_t				ft_dlist_len(t_dlist *ptr);
 void				ft_dlist_add_after(t_dlist *after, t_dlist *el);
 t_dlist				*ft_dlist_create_el(void *el, int tag);
 void				ft_dlist_sort(t_dlist *beg, int (*cmp)(const void *, const void *));
+int					ft_dlist_is_tagsort(t_dlist *lst, int is_ascending);
 
 /*
 **						QUEUE
