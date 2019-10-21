@@ -6,7 +6,7 @@
 /*   By: nharra <nharra@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 10:20:04 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/21 11:47:29 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/21 12:56:11 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ char	*ft_join_beg(char **s1, const char *s2)
 		return (*s1);
 	if (!(s = (char *)malloc(len1 + len2 + 1)))
 		return (NULL);
-	while (i++ < len2)
+	while (i < len2)
 	{
-		s[i - 1] = s2[i - 1];
+		s[i] = s2[i];
 		++i;
 	}
 	while (i++ <= len1 + len2)
