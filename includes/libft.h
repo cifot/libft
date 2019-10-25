@@ -6,7 +6,7 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/26 02:48:05 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 02:58:15 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void				ft_put_nsym(int count, char c);
 char				*ft_str_nsym(int count, char sym);
 char				*ft_join_beg(char **s1, const char *s2);
 char				*ft_join(char **s1, const char *s2);
-char				*ft_join_nsym(char **s, int flag, int count, char c);
+char				*ft_join_nsym(char **s, int to_end, int count, char c);
 
 /*
 **						SINGLE_LINKED_LIST
