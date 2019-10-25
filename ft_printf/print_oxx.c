@@ -6,11 +6,12 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/26 20:57:30 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/10 10:59:09 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 00:52:53 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_printf.h"
 #include <unistd.h>
 
 static void		check_flags(t_print_info *info, char **s,
@@ -43,19 +44,19 @@ static void		with_hash(t_print_info *info, char **s, int *len,
 	if (info->flags & flag_minus)
 	{
 		check_flags(info, s, num);
-		join_nsym(s, 1, info->width - *len - i, ' ');
+		ft_join_nsym(s, 1, info->width - *len - i, ' ');
 	}
 	else
 	{
 		if ((info->flags & flag_zero) && info->precision == -1)
 		{
-			join_nsym(s, 0, info->width - *len - i, '0');
+			ft_join_nsym(s, 0, info->width - *len - i, '0');
 			check_flags(info, s, num);
 		}
 		else
 		{
 			check_flags(info, s, num);
-			join_nsym(s, 0, info->width - *len - i, ' ');
+			ft_join_nsym(s, 0, info->width - *len - i, ' ');
 		}
 	}
 }
@@ -66,14 +67,14 @@ static void		without_hash(t_print_info *info, char **s, int *len)
 	{
 		if (info->flags & flag_minus)
 		{
-			join_nsym(s, 1, info->width - *len, ' ');
+			ft_join_nsym(s, 1, info->width - *len, ' ');
 		}
 		else
 		{
 			if (info->flags & flag_zero)
-				join_nsym(s, 0, info->width - *len, '0');
+				ft_join_nsym(s, 0, info->width - *len, '0');
 			else
-				join_nsym(s, 0, info->width - *len, ' ');
+				ft_join_nsym(s, 0, info->width - *len, ' ');
 		}
 	}
 }
@@ -89,7 +90,7 @@ static int		print_oxx_continue(t_print_info *info,
 	len = ft_strlen(s);
 	if (info->precision > len)
 	{
-		join_nsym(&s, 0, info->precision - len, '0');
+		ft_join_nsym(&s, 0, info->precision - len, '0');
 		len = info->precision;
 	}
 	if (info->precision >= 0)

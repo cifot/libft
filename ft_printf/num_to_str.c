@@ -6,10 +6,11 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/20 08:43:36 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/09 16:30:08 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 00:53:32 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
@@ -26,7 +27,7 @@ char			*num_base(unsigned long long num, unsigned base,
 	base_str = "0123456789abcdef";
 	if (info->type == type_X)
 		base_str = "0123456789ABCDEF";
-	len_num = ull_len_base(num, base);
+	len_num = ft_ull_len_base(num, base);
 	if (!(s = (char *)malloc(sizeof(*s) * (len_num + 1))))
 		return (NULL);
 	rank = 1;
@@ -71,27 +72,4 @@ char			*ll_base(long long num, t_print_info *info)
 		num_str = num_base(u_num, 10, info);
 	}
 	return (num_str);
-}
-
-void			put_nsym(int count, char c)
-{
-	char *s;
-
-	if (!(s = str_nsym(count, c)))
-		return ;
-	write(1, s, ft_strlen(s));
-	free(s);
-}
-
-char			*join_nsym(char **s, int flag, int count, char c)
-{
-	char *tmp;
-
-	tmp = str_nsym(count, c);
-	if (flag == 0)
-		ft_join_beg(s, tmp);
-	else
-		ft_join(s, tmp);
-	free(tmp);
-	return (*s);
 }

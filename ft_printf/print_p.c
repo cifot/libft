@@ -6,21 +6,22 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/24 22:07:28 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/09 16:30:34 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 00:50:08 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 #include <unistd.h>
+#include "libft.h"
 
 static int		print_p_continue(t_print_info *info, int len, char *ul_str)
 {
 	if (info->width > len)
 	{
 		if (info->flags & flag_minus)
-			join_nsym(&ul_str, 1, info->width - len, ' ');
+			ft_join_nsym(&ul_str, 1, info->width - len, ' ');
 		else
-			join_nsym(&ul_str, 0, info->width - len, ' ');
+			ft_join_nsym(&ul_str, 0, info->width - len, ' ');
 		len = info->width;
 	}
 	write(1, ul_str, len);
@@ -45,7 +46,7 @@ int				print_p(t_print_info *info, va_list params)
 	len = ft_strlen(ul_str);
 	if (info->precision > len)
 	{
-		join_nsym(&ul_str, 0, info->precision - len, '0');
+		ft_join_nsym(&ul_str, 0, info->precision - len, '0');
 		len = info->precision;
 	}
 	ft_join_beg(&ul_str, "0x");

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nharra <nharra@student.42.fr>              +#+  +:+       +#+         #
+#    By: nharra <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/17 12:21:44 by nharra            #+#    #+#              #
-#    Updated: 2019/10/21 14:28:12 by nharra           ###   ########.fr        #
+#    Updated: 2019/10/26 00:45:39 by nharra           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,12 +67,17 @@ SOURCES_MEMORY =\
 	ft_strsub.c\
 	ft_strtrim.c\
 	ft_safe_strcat.c\
-	ull_len_base.c\
-	ll_len_base.c\
+	ft_ull_len_base.c\
+	ft_ll_len_base.c\
 	ft_lltostr.c\
 	ft_ulltostr.c\
 	ft_swap_int.c\
 	ft_swap_link.c\
+	ft_join_beg.c\
+	ft_join_nsym.c\
+	ft_join.c\
+	ft_put_nsym.c\
+	ft_str_nsym.c\
 
 SOURCES_DOUBLE_LIST =\
 	ft_dlist_del.c\
@@ -134,7 +139,6 @@ SOURCES_PRINTF =\
 	print_params.c\
 	num_to_str.c\
 	put_percent.c\
-	ft_join.c\
 	ft_atois.c\
 
 SOURCES_MEMORY_DIR = memory

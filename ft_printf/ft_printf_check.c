@@ -6,11 +6,11 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 18:41:03 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/09 16:29:24 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 00:42:22 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 void		check_flag(t_print_info *info, const char **ptr)
 {

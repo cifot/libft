@@ -6,10 +6,11 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/24 20:14:19 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/09 16:30:19 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 00:49:37 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 #include <unistd.h>
 
@@ -30,7 +31,7 @@ static void		check_flags(t_print_info *info, char **s, int flag)
 		write(1, "+", flag = 1);
 	if ((info->flags & flag_space) && (info->flags & flag_minus))
 		write(1, " ", flag = 1);
-	put_nsym(info->width - flag, ' ');
+	ft_put_nsym(info->width - flag, ' ');
 	if (((info->flags & flag_plus) && !(info->flags & flag_minus)))
 		write(1, "+", 1);
 }
@@ -43,19 +44,19 @@ static void		without_minus(t_print_info *info, char **s, int *len)
 	if (info->flags & flag_minus)
 	{
 		check_flags(info, s, 0);
-		join_nsym(s, 1, info->width - *len - i, ' ');
+		ft_join_nsym(s, 1, info->width - *len - i, ' ');
 	}
 	else
 	{
 		if ((info->flags & flag_zero) && info->precision == -1)
 		{
-			join_nsym(s, 0, info->width - *len - i, '0');
+			ft_join_nsym(s, 0, info->width - *len - i, '0');
 			check_flags(info, s, 0);
 		}
 		else
 		{
 			check_flags(info, s, 0);
-			join_nsym(s, 0, info->width - *len - i, ' ');
+			ft_join_nsym(s, 0, info->width - *len - i, ' ');
 		}
 	}
 	*len = info->width;
@@ -66,7 +67,7 @@ static void		with_minus(t_print_info *info, char **s, int *len)
 	if (info->width > *len)
 		if (info->flags & flag_minus)
 		{
-			join_nsym(s, 1, info->width - *len - 1, ' ');
+			ft_join_nsym(s, 1, info->width - *len - 1, ' ');
 			ft_join_beg(s, "-");
 		}
 		else
@@ -74,15 +75,15 @@ static void		with_minus(t_print_info *info, char **s, int *len)
 			if (info->flags & flag_zero)
 			{
 				if (info->flags & flag_zero)
-					join_nsym(s, 0, info->width - *len - 1, '0');
+					ft_join_nsym(s, 0, info->width - *len - 1, '0');
 				ft_join_beg(s, "-");
 				if (!(info->flags & flag_zero))
-					join_nsym(s, 0, info->width - *len - 1, ' ');
+					ft_join_nsym(s, 0, info->width - *len - 1, ' ');
 			}
 			else
 			{
 				ft_join_beg(s, "-");
-				join_nsym(s, 0, info->width - *len - 1, ' ');
+				ft_join_nsym(s, 0, info->width - *len - 1, ' ');
 			}
 		}
 	else
@@ -99,7 +100,7 @@ static int		print_d_continue(t_print_info *info, long long num)
 	len = ft_strlen(s);
 	if (info->precision > len)
 	{
-		join_nsym(&s, 0, info->precision - len, '0');
+		ft_join_nsym(&s, 0, info->precision - len, '0');
 		len = info->precision;
 	}
 	if (info->precision >= 0)

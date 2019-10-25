@@ -6,10 +6,11 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/24 20:19:16 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/09 16:30:48 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 00:50:46 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 #include <unistd.h>
 
@@ -17,14 +18,14 @@ static void		with_width(t_print_info *info, char **s, int *len)
 {
 	if (info->flags & flag_minus)
 	{
-		join_nsym(s, 1, info->width - *len, ' ');
+		ft_join_nsym(s, 1, info->width - *len, ' ');
 	}
 	else
 	{
 		if (info->flags & flag_zero)
-			join_nsym(s, 0, info->width - *len, '0');
+			ft_join_nsym(s, 0, info->width - *len, '0');
 		else
-			join_nsym(s, 0, info->width - *len, ' ');
+			ft_join_nsym(s, 0, info->width - *len, ' ');
 	}
 	*len = info->width;
 }
@@ -40,7 +41,7 @@ static int		print_u_continue(t_print_info *info,
 	len = ft_strlen(s);
 	if (info->precision > len)
 	{
-		join_nsym(&s, 0, info->precision - len, '0');
+		ft_join_nsym(&s, 0, info->precision - len, '0');
 		len = ft_strlen(s);
 	}
 	if (info->precision >= 0)
@@ -70,7 +71,7 @@ int				print_u(t_print_info *info, va_list params)
 		ull_num = (unsigned short int)ull_num;
 	if (info->precision == 0 && ull_num == 0)
 	{
-		put_nsym(info->width, ' ');
+		ft_put_nsym(info->width, ' ');
 		return (info->width);
 	}
 	return (print_u_continue(info, ull_num));

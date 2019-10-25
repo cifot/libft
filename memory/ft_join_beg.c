@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ulltostr.c                                      :+:      :+:    :+:   */
+/*   ft_join_beg.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 10:41:52 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/26 00:46:53 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/26 00:34:30 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/26 00:34:52 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_ulltostr(unsigned long long num, unsigned base)
+char	*ft_join_beg(char **s1, const char *s2)
 {
-	unsigned long long	rank;
-	char				*base_str;
-	int					len_num;
-	int					i;
-	char				*s;
+	size_t		len1;
+	size_t		len2;
+	char		*s;
+	size_t		i;
 
-	if (base < 2 || base > 16)
+	if (!s1 || !s2 || (i = 0))
 		return (NULL);
-	base_str = "0123456789abcdef";
-	len_num = ft_ull_len_base(num, base);
-	if (!(s = (char *)malloc(sizeof(*s) * (len_num + 1))))
+	if (!(*s1))
+		return (*s1 = ft_strdup(s2));
+	len1 = ft_strlen(*s1);
+	if ((len2 = ft_strlen(s2)) == 0)
+		return (*s1);
+	if (!(s = (char *)malloc(len1 + len2 + 1)))
 		return (NULL);
-	rank = 1;
-	while (num / rank >= base)
-		rank *= base;
-	i = 0;
-	while (rank)
+	while (i < len2)
 	{
-		s[i++] = *(base_str + (num / rank) % base);
-		rank /= base;
+		s[i] = s2[i];
+		++i;
 	}
-	s[i] = '\0';
+	while (i++ <= len1 + len2)
+		s[i - 1] = (*s1)[i - 1 - len2];
+	free(*s1);
+	*s1 = s;
 	return (s);
 }

@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_c.c                                          :+:      :+:    :+:   */
+/*   ft_put_nsym.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/24 20:42:28 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/26 00:48:27 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/26 00:38:16 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/26 00:47:20 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "ft_printf.h"
 #include "libft.h"
 
-int		print_c(t_print_info *info, va_list params)
+void			ft_put_nsym(int count, char c)
 {
-	char c;
+	char *s;
 
-	c = va_arg(params, int);
-	if (info->width <= 1)
-		write(1, &c, 1);
-	else
-	{
-		if (info->flags & flag_minus)
-		{
-			write(1, &c, 1);
-			ft_put_nsym(info->width - 1, ' ');
-		}
-		else
-		{
-			ft_put_nsym(info->width - 1, ' ');
-			write(1, &c, 1);
-		}
-	}
-	return (info->width <= 1 ? 1 : info->width);
+	if (!(s = ft_str_nsym(count, c)))
+		return ;
+	write(1, s, ft_strlen(s));
+	free(s);
 }

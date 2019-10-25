@@ -6,10 +6,11 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/27 09:59:23 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/10 10:58:40 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 00:51:55 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "libft.h"
 #include <unistd.h>
 
@@ -73,9 +74,9 @@ static void		check(char **ld_str, t_print_info *info, int flag)
 			ft_join_beg(ld_str, " ");
 	len = ft_strlen(*ld_str);
 	if (info->flags & flag_minus)
-		join_nsym(ld_str, 1, info->width - len, ' ');
+		ft_join_nsym(ld_str, 1, info->width - len, ' ');
 	else
-		join_nsym(ld_str, 0, info->width - len, ' ');
+		ft_join_nsym(ld_str, 0, info->width - len, ' ');
 }
 
 static void		round_f(char **ld_str, char *ptr)

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ull_len_base.c                                     :+:      :+:    :+:   */
+/*   ft_ll_len_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/01 10:45:28 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/07 20:52:37 by nharra           ###   ########.fr       */
+/*   Created: 2019/10/01 10:44:04 by nharra            #+#    #+#             */
+/*   Updated: 2019/10/26 00:46:34 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ull_len_base(unsigned long long num, unsigned base)
+int		ft_ll_len_base(long long num, unsigned base)
 {
-	int count;
+	unsigned long long	u_num;
 
-	count = 0;
-	if (base < 2 || base > 16)
-		return (0);
-	if (num == 0)
-		return (1);
-	while (num)
+	u_num = num;
+	if (num >= 0)
 	{
-		num /= base;
-		++count;
+		return (ft_ull_len_base(u_num, base));
 	}
-	return (count);
+	else
+	{
+		u_num = -u_num;
+		return (ft_ull_len_base(u_num, base));
+	}
 }
