@@ -6,7 +6,7 @@
 /*   By: nharra <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:17:27 by nharra            #+#    #+#             */
-/*   Updated: 2019/10/26 00:40:29 by nharra           ###   ########.fr       */
+/*   Updated: 2019/10/26 02:48:05 by nharra           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,9 +179,23 @@ void				ft_queque_del_link(t_queue **queue);
 void				*ft_queue_pop(t_queue *queue);
 t_queue				*ft_queue_new(void);
 
+
 /*
-**						PRIORITY_QUEUE
+**						VECTOR_INT
 */
+
+typedef struct	v_int
+{
+	int			*beg;
+	int			*after_end;
+	size_t		max_size;
+}				t_v_int;
+
+int					ft_v_int_realloc(t_v_int *v, size_t size);
+t_v_int				*ft_v_int_new(size_t size);
+int					ft_v_int_init(t_v_int *v, size_t size);
+int					ft_v_int_pop_back(t_v_int *v, int *c);
+int					ft_v_int_push_back(t_v_int *v, int value);
 
 /*
 **						STACK

@@ -6,7 +6,7 @@
 #    By: nharra <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/06/17 12:21:44 by nharra            #+#    #+#              #
-#    Updated: 2019/10/26 00:45:39 by nharra           ###   ########.fr        #
+#    Updated: 2019/10/26 02:52:42 by nharra           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -141,6 +141,13 @@ SOURCES_PRINTF =\
 	put_percent.c\
 	ft_atois.c\
 
+SOURCES_V_INT =\
+	ft_v_int_init.c\
+	ft_v_int_new.c\
+	ft_v_int_push_back.c\
+	ft_v_int_pop_back.c\
+	ft_v_int_realloc.c\
+
 SOURCES_MEMORY_DIR = memory
 SOURCES_SINGLE_LIST_DIR = singly_linked_list
 SOURCES_DOUBLE_LIST_DIR = double_linked_list
@@ -148,6 +155,7 @@ SOURCES_FILE_DIR = file
 SOURCES_QUEUE_DIR = queue
 SOURCES_STACK_DIR = stack
 SOURCES_PRINTF_DIR = ft_printf
+SOURCES_V_INT_DIR = v_int
 
 SOURCE = $(notdir $(SOURCES))
 
@@ -159,6 +167,7 @@ SOURCES = \
 	$(addprefix $(SOURCES_QUEUE_DIR)/, $(SOURCES_QUEUE))\
 	$(addprefix $(SOURCES_STACK_DIR)/, $(SOURCES_STACK))\
 	$(addprefix $(SOURCES_PRINTF_DIR)/, $(SOURCES_PRINTF))\
+	$(addprefix $(SOURCES_V_INT_DIR)/, $(SOURCES_V_INT))\
 
 OBJECTS_DIR = obj
 
@@ -173,7 +182,7 @@ INCLUDES = libft.h
 
 NAME = libft.a
 
-vpath %.c $(SOURCES_MEMORY_DIR) $(SOURCES_SINGLE_LIST_DIR) $(SOURCES_DOUBLE_LIST_DIR) $(SOURCES_FILE_DIR) $(SOURCES_QUEUE_DIR) $(SOURCES_STACK_DIR) $(SOURCES_PRINTF_DIR)
+vpath %.c $(SOURCES_MEMORY_DIR) $(SOURCES_SINGLE_LIST_DIR) $(SOURCES_DOUBLE_LIST_DIR) $(SOURCES_FILE_DIR) $(SOURCES_QUEUE_DIR) $(SOURCES_STACK_DIR) $(SOURCES_PRINTF_DIR) $(SOURCES_V_INT_DIR)
 
 vpath %.h $(INCLUDE_DIR)
 
